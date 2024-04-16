@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Suling" charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾尚拼鉴</title>
+<style type="text/css">
+* {
+    box-sizing: border-box;
+}
+
+ 
+/* 标题 */
+.header {
+    padding: 50px;
+    text-align: center;
+    background: #00b2bc;
+    color: white;
+    height: 40%;
+}
+ 
+/* 标题字体加大 */
+.header h1 {
+    font-size: 40px;
+}
+
+/*下面的字不要居中*/
+.header p {
+    text-align: left;
+    font-size:small;
+    color: black;
+}
+
+/* body 样式 */
+body {
+    font-family: Arial;
+    margin: 0;
+    height: 100%;
+}
+
+/* 主要的内容区域 */
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 80%;
+    background-color: white;
+    padding: 50px;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+/* 点击按钮后的内容*/
+.content {
+    -ms-flex: 70%;
+    flex: 70%;
+    margin: 50;
+    padding: 55px;
+    display: none;
+    border: #00b2bc;
+    border-style: solid;
+    border-width: 0px 55px 55px 55px;
+}
+.content h2{
+    text-align: center;
+}
+.content h3 {
+    text-align: center;
+    border: #00b2bc;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+/* 底部 */
+.footer {
+    padding: 20px;
+    text-align: center;
+    vertical-align: bottom;
+    background:#00b2bc;
+    color: #ddd;
+    font-size: 10px;
+}
+
+
+/*输入框美化*/
+.inputText{
+    width: 80%;
+    height: 45px;
+    line-height: 10px;
+    font-size: 14px;
+    padding-left: 30px;
+    border-radius: 50px;
+    background-color: gainsboro;
+    border: none;
+}
+.inputText:focus{
+    outline: none; /*设置所有的轮廓属性为none*/
+    background-color: lightblue;
+}
+
+/*按钮美化*/
+.btn{
+    width: 50px;
+    height: 25px;
+    border: none;
+    background-color: #1abc9c;
+    line-height: 10px;
+    font-size: 10px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    border-radius: 50px;
+}
+.btn[disabled]{
+    color:rgb(255, 253, 253)!important;    
+    background: #d0d0d0 !important;
+}
+
+@media screen and (max-width: 768px) {
+    .header{
+        width: 100%;
+        padding: 5%
+    }
+    .main{
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .content{
+        width: 100%;
+        padding: 5%;
+        margin: 20;
+        border-width: 0px 20px 20px 20px;
+        font-size: 80%;
+    }
+    .footer{
+        width: 100%;
+    }
+    .inputText{
+        width: 80%;
+    }
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+<div class="header">
+    <h1>拾尚拼鉴</h1><!-- 这是一个注释 -->
+    <p>总之这是一个测试！！<br>写点什么呢？到底写一点什么好呢？好像真的没什么好写的，到底写什么呢？<br>我也不知道该写点什么， 反正有点什么内容就好了！</p>
+</div>
+
+<div class="main">
+    <form name="form1" method="get" onsubmit="return false;">
+        <input id="input" type="text" class="inputText" placeholder="请输入名字" name="name0" onkeyup="checkStr()" maxlength="20">
+        <input type="button" id="button1" value="提交" class="btn" disabled onclick="welcom(name0)">
+        
+    </form>
+
+</div>
+
+<div class="content">
+    <h2 id="first"></h2>
+    <h3>搭配限制</h3>
+    <p><b>发型限制：</b><span id="ha"></span></p>
+    <p><b>服装限制：</b><span id="cl"></span></p>
+    <p><b>颜色限制：</b><span id="co"></span></p>
+    <p><b>场景限制：</b><span id="sc"></span></p>
+    <h3>搭配主题</h3>
+    <p id="th"></p>
+    <h3>其他要求</h3>
+    <p id="oth"></p>
+
+</div>
+
+<div class="footer">
+    <p>代码好难，不学了（掀桌</p>
+</div>
+</body>
+</html>
+
+<script>
+    var hair = ["露出额头","有辫子的发型","短发","长发","挑染","无限制"]
+    var cloth = ["盔甲","皮革","宝石","羽毛","针织","包","金属配饰","条纹/网络花纹","长裙/长袍","披风","长裤","对襟","扣子/拉链","领结","佩戴饰品","毛绒绒","面罩/眼镜","短袖/露出手臂","可交易的衣服/裤子","非对称头部/手部/脚部幻化","动物元素（种族特征不算）","植物元素","有性别差分的装备","校服部件","绑带/皮带","蝴蝶结","露指","高领","长靴","袜子","带跟的鞋子","无限制"]
+    var colour = ["单色系","包含红色系","包含蓝色系","包含绿色系","包含黄色系","包含特殊色系","无限制"]
+    var scene = ["植物","山峦","水源","室内","建筑物","废墟","座椅","自然景观","城镇","灯笼/路灯","晴空","雨/雪","荒地","街道","夜晚","无限制"]
+    var theme = ["冬装","科幻","休闲","运动","正装","辣妹","甜美","哥特","民族风","朋克","通勤","灵异志怪","田园","古典","现代","学院风","战斗风","欧式","英伦","中式","和风","街头朋克","泳装","模仿秀/Cosplay","多种风格混搭"]
+    var other = ["显示宠物","显示主手","非直立姿势","多人合影","无"]
+
+    function checkStr(){
+        var inputstr = document.getElementById("input").value.trim();
+        var buttonstyle = document.getElementById("button1")
+        if(inputstr!="" && inputstr!=null){
+            buttonstyle.disabled = false;
+            }
+            else{buttonstyle.disabled = true}
+        
+    }
+
+    function welcom(username){
+        document.getElementById("first").innerText = username.value+"的拾尚拼鉴挑战是："
+        var ui = document.getElementsByClassName("main");
+        ui[0].style.display = "none"
+        var result = document.getElementsByClassName("content");
+        result[0].style.display = "block"
+
+        var index_hair = Math.floor(Math.random()*hair.length);
+        var ha = hair[index_hair];
+        document.getElementById("ha").innerText =ha;/*发型限制*/
+
+        var index_cloth1 = Math.floor(Math.random()*cloth.length);
+        var index_cloth2 = Math.floor(Math.random()*cloth.length);
+        do{
+            index_cloth1 = Math.floor(Math.random()*cloth.length);
+            index_cloth2 = Math.floor(Math.random()*cloth.length);
+        }
+        while (index_cloth1==index_cloth2)
+        var cl = [cloth[index_cloth1],cloth[index_cloth2]];
+
+        if (cl[0]=="无限制"||cl[1]=="无限制"){
+            cl =["无限制"];
+        }
+        cl = cl.join("，")
+        document.getElementById("cl").innerText =cl;/*服装限制*/
+
+        var index_colour = Math.floor(Math.random()*colour.length);
+        var co = colour[index_colour];
+        document.getElementById("co").innerText =co;/*颜色限制*/
+
+        var index_scene = Math.floor(Math.random()*scene.length);
+        var sc = scene[index_scene];
+        document.getElementById("sc").innerText =sc;/*场景限制*/
+
+        var index_theme = Math.floor(Math.random()*theme.length);
+        var th = theme[index_theme];
+        document.getElementById("th").innerText = th;/*主题限制*/
+
+        var index_other = Math.floor(Math.random()*10)
+        if (index_other==0){
+            var oth = other[index_other];
+        } else if (index_other==1){
+            var oth = other[index_other];
+        }
+        else if (index_other==2){
+            var oth = other[index_other];
+        }
+        else if (index_other==3){
+            var oth = other[index_other];
+        }
+        else{
+            var oth = other[4];
+        }
+        document.getElementById("oth").innerText = oth;/*其他限制*/        
+        
+    }      
+        
+
+
+   
+</script>
