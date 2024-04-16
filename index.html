@@ -40,12 +40,12 @@ body {
 
 /* 主要的内容区域 */
 .main {   
-    -ms-flex: 70%; /* IE10 */
+    -ms-flex: 70%;
     flex: 80%;
     background-color: white;
-    padding: 50px;
-    height: 200px;
-    margin-bottom: 50px;
+    padding-top: 50px;
+    height: 250px;
+
 }
 
 /* 点击按钮后的内容*/
@@ -74,6 +74,7 @@ body {
 /* 底部 */
 .footer {
     padding: 20px;
+    height: 70px;
     text-align: center;
     vertical-align: bottom;
     background:#00b2bc;
@@ -177,7 +178,7 @@ body {
 </div>
 
 <div class="footer">
-    <p>代码好难，不学了（掀桌</p>
+    <p id="haonan"></p>
 </div>
 </body>
 </html>
@@ -255,6 +256,7 @@ body {
         }
         document.getElementById("oth").innerText = oth;/*其他限制*/        
         
+        document.getElementById("haonan").innerText = "代码好难，不学了（掀桌"
     }      
         
 
