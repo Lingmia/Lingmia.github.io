@@ -43,21 +43,32 @@ body {
     -ms-flex: 70%;
     flex: 80%;
     background-color: white;
-    padding-top: 50px;
+    padding: 50px;
     height: 250px;
 
+}
+
+/*做个盒子*/
+.box {
+    -ms-flex: 70%;
+    flex: 70%;
+    width: 100%;
+    padding: 50px;
+    background-color: #00b2bc;
 }
 
 /* 点击按钮后的内容*/
 .content {
     -ms-flex: 70%;
     flex: 70%;
-    margin: 50;
-    padding: 55px;
-    display: none;
-    border: #00b2bc;
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+    border: white;
     border-style: solid;
-    border-width: 15px 55px 55px 125px;
+    border-width: 5px 20px 20px 20px;
+    border-radius: 10px;
+    display: none;
 }
 .content h2{
     text-align: center;
@@ -89,7 +100,7 @@ body {
     height: 45px;
     line-height: 10px;
     font-size: 14px;
-    padding-left: 50px;
+    padding-left: 30px;
     border-radius: 50px;
     background-color: gainsboro;
     border: none;
@@ -143,10 +154,14 @@ body {
         padding-left: 5%;
         padding-right: 5%;
     }
+    .box{
+        width: 100%;
+        padding: 5%;
+    }
     .content{
         width: 100%;
         padding: 5%;
-        margin: 20;
+        margin: 0px;
         border-width: 5px 20px 20px 20px;
         font-size: 80%;
     }
@@ -171,29 +186,28 @@ body {
         <p data-html2canvas-ignore="true">总之这是一个测试！！<br>写点什么呢？到底写一点什么好呢？好像真的没什么好写的，到底写什么呢？<br>我也不知道该写点什么， 反正有点什么内容就好了！</p>
     </div>
 
-
     <div class="main">
         <form name="form1" method="get" onsubmit="return false;">
             <input id="input" type="text" class="inputText" placeholder="请输入名字" name="name0" onkeyup="checkStr()" maxlength="20">
             <input type="button" id="button1" value="提交" class="btn" disabled onclick="welcom(name0)">
-            
         </form>
-    
+    </div>
+    <div class="box">
+        <div class="content">
+            <h2 id="first"></h2>
+            <h3>搭配限制</h3>
+            <p><b>发型限制：</b><span id="ha"></span></p>
+            <p><b>服装限制：</b><span id="cl"></span></p>
+            <p><b>颜色限制：</b><span id="co"></span></p>
+            <p><b>场景限制：</b><span id="sc"></span></p>
+            <h3>搭配主题</h3>
+            <p id="th"></p>
+            <h3>其他要求</h3>
+            <p id="oth"></p>
+            <button id="saveBtn" data-html2canvas-ignore="true" class="savebtn">保存图片</button>
+        </div>
     </div>
     
-    <div class="content">
-        <h2 id="first"></h2>
-        <h3>搭配限制</h3>
-        <p><b>发型限制：</b><span id="ha"></span></p>
-        <p><b>服装限制：</b><span id="cl"></span></p>
-        <p><b>颜色限制：</b><span id="co"></span></p>
-        <p><b>场景限制：</b><span id="sc"></span></p>
-        <h3>搭配主题</h3>
-        <p id="th"></p>
-        <h3>其他要求</h3>
-        <p id="oth"></p>
-        <button id="saveBtn" data-html2canvas-ignore="true" class="savebtn">保存图片</button>
-    </div>
 </div>
 
 
