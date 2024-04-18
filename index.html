@@ -86,7 +86,11 @@ body {
     border-width: 3px;
     border-radius: 10px 10px 10px 10px;
 }
-
+.ymd {
+    font-size: 12px;
+    text-align: center;
+    color: gray;
+    vertical-align: bottom;
 
 /* 底部 */
 .footer {
@@ -211,6 +215,7 @@ body {
             <p id="oth"></p>
             <br><br>
             <button id="saveBtn" data-html2canvas-ignore="true" class="savebtn">保存图片</button>
+            <p id="ymd" class="ymd"></p>
         </div>
     </div>
     
@@ -226,7 +231,13 @@ body {
 </html>
 
 <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
+<script>
+    var date = new Date();
+    var y = date.getFullYear();
+    var m = date.getMonth()+1;
+    var d = date.getDate(); 
+    document.getElementById("ymd").innerHTML = "----"+y+"年"+m+"月"+d+"日----";
+</script>
 <script>
     document.getElementById('saveBtn').addEventListener('click', function() {
         // 获取要保存为图片的 HTML 元素
