@@ -194,7 +194,7 @@ body {
 <div id="picture">
     <div class="header">
         <h1>拾尚拼鉴</h1><!-- 这是一个注释 -->
-        <p data-html2canvas-ignore="true">总之这是用来给自己提供一点幻化灵感的小东西！！<br>能跑就行，能跑就行（擦汗</p>
+        <p id="run" data-html2canvas-ignore="true">总总之这是用来给自己提供一点幻化灵感的小东西！！<br>能跑就行，能跑就行（擦汗</p>
     </div>
 
     <div class="main">
@@ -284,6 +284,7 @@ body {
         ui[0].style.display = "none"
         var result = document.getElementsByClassName("content"); //新的显示
         result[0].style.display = "block"
+        document.getElementById("run").style.display = "none";
 
         var index_hair = Math.floor(Math.random()*hair.length);
         var ha = hair[index_hair];
